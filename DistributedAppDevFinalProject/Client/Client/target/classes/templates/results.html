@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Cover Template · Bootstrap v5.0</title>
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/results.css" rel="stylesheet">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://kit.fontawesome.com/9638dc7e72.js" crossorigin="anonymous"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Cover</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="/search">Home</a>
+        <a class="nav-link" href="/login">Log Out</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <table class="fl-table">
+      <tr>
+      <th>Airlines</th>
+      <th>Distance</th>
+      <th>Price</th>
+      <th>Departure</th>
+      <th>Flight Duration</th>
+      </tr>
+      
+      <tr th:each="data: ${flightSearchResult}">
+          <td th:text="${data.getJSONArray('airlines')}"/>
+          <td th:text="${data.getDouble('distance')}"/>
+          <td th:text="${data.getDouble('price')}"/>
+          <td th:text="${data.getString('local_departure')}"/>
+          <td th:text="${data.getJSONObject('duration').getInt('total')}"/>
+      </tr>
+      </table>
+</div>
+
+    </div>
+  </main>
+
+</div>
+
+
+    
+  </body>
+  </html>

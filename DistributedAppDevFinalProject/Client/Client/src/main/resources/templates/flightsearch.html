@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Cover Template · Bootstrap v5.0</title>
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://kit.fontawesome.com/9638dc7e72.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../assets/dist/js/script.js"></script>
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Cover</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="/login">Log Out</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1 class="weather" id="weather">Find the Right Flight.</h1>
+    <!--Card-->
+      
+    <!--Card-->
+    <div class="card shadow mb-5 bg-white rounded" style="max-width: 800px; margin:auto">
+      <div class="wrapper bg-white">
+        
+      <!--Search Input Form-->
+      <form name="search" id="search" action="/search" onSubmit="return validateflightsearch()" method="POST">
+        <fieldset>
+        <div class="form-group d-sm-flex margin">
+          <div class="input-group mb-3">
+              <input type="radio" class="btn-check" name="options" id="oneWay" autocomplete="off" disabled>
+              <label class="btn btn-primary" for="oneWay">One Way</label>
+              <input type="radio" class="btn-check" name="options" id="round" autocomplete="off" checked>
+              <label class="btn btn-primary" for="roundTrip">Round Trip</label>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="adults" >Adults</span>
+            </div>
+            <input type="number" min="0" class="form-control" value="1" name="adults" aria-describedby="adults">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="kids">Children</span>
+            </div>
+            <input type="number" min="0" class="form-control"  value="0" name="kids" aria-describedby="kids">
+          </div>
+        </div>
+          <div class="form-group d-sm-flex margin">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="start">From</span>
+              </div>
+              <input type="text" class="form-control" aria-label="From" aria-describedby="start" id="cityFrom" name="cityFrom">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="dest">To</span>
+              </div>
+              <input type="text" class="form-control"  aria-label="To:" aria-describedby="dest" id="cityTo" name="cityTo">
+            </div>
+          </div>
+          <div class="form-group d-sm-flex margin">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="depart">Departing:</span>
+              </div>
+              <input type="date" class="form-control"  aria-label="Departing:" name="departDate" aria-describedby="depart">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="return">Returning:</span>
+              </div>
+              <input type="date" class="form-control" aria-label="Returning" name="returnDate" aria-describedby="return">
+            </div>
+          </div>
+          <div class="form-group my-3"></div>
+              <button class="btn btn-primary rounded-2 text-center p-3" type="submit" value="Search">Search Flights</button>
+          </div>
+          </fieldset>
+      </form>
+      <!--End of Form-->
+    </div>
+    </div>
+  </main>
+
+</div>
+
+
+    
+  </body>
+  </html>
